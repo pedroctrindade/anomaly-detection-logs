@@ -32,7 +32,7 @@ def parse_sequence(f_matrix_keys, sequence):
 def write_dict_to_csv(keys, my_dictionary):
 
     with open('../../Dataset/trafficDataset.csv', 'w', newline='') as output_file:
-        dict_writer = csv.DictWriter(output_file, keys, quoting=csv.QUOTE_ALL)
+        dict_writer = csv.DictWriter(output_file, keys, quoting=csv.QUOTE_ALL, restval=0)
         dict_writer.writeheader()
         dict_writer.writerows(my_dictionary)
 
@@ -70,10 +70,12 @@ def main():
         sequence = n_gram_string(feature_str)
         parsed_sequence = parse_sequence(f_matrix_keys, sequence)
         parsed_sequence["REQUEST_TYPE"] = data.REQUEST_TYPE
+        parsed_sequence["FULL_REQUEST"] = "{}?{}".format(data.RESOURCE, data.PAYLOAD)
         n_grams_seq.append(parsed_sequence)
 
-    #f_matrix_keys.append("REQUEST_TYPE")
-    #write_dict_to_csv(f_matrix_keys, n_grams_seq)
+    f_matrix_keys.append("REQUEST_TYPE")
+    f_matrix_keys.append("FULL_REQUEST")
+    write_dict_to_csv(f_matrix_keys, n_grams_seq)
 
     #no of features
     print(len(f_matrix_keys))

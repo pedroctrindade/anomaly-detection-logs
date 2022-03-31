@@ -8,17 +8,13 @@ def main():
 
     dataset = pd.read_csv("../../Dataset/trafficDataset.csv")
 
-    #scaler = MinMaxScaler(feature_range=(0,1))
-    #X = scaler.fit_transform(dataset.iloc[:, :-1].values)
-
-    std_scale = StandardScaler()
-
-    X = std_scale.fit_transform(dataset.iloc[:, :-1].values)
+    X = dataset.iloc[:, :-2].values
     y = dataset.iloc[:, 796].values
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+    requests = dataset.iloc[:, 797]
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.80)
 
 
-    knn_model = KNeighborsClassifier(n_neighbors=5)
+    knn_model = KNeighborsClassifier(n_neighbors=3)
     knn_model.fit(X_train, y_train)
 
 
