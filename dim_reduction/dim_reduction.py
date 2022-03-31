@@ -3,7 +3,7 @@ from sklearn.decomposition import PCA
 
 def main():
 
-    df = pd.read_csv("../dataset/trafficDataset.csv")
+    df = pd.read_csv("../../Dataset/trafficDataset.csv")
 
     pca = PCA(n_components=72)
 

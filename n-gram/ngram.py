@@ -31,7 +31,7 @@ def parse_sequence(f_matrix_keys, sequence):
 
 def write_dict_to_csv(keys, my_dictionary):
 
-    with open('../dataset/trafficDataset.csv', 'w', newline='') as output_file:
+    with open('../../Dataset/trafficDataset.csv', 'w', newline='') as output_file:
         dict_writer = csv.DictWriter(output_file, keys, quoting=csv.QUOTE_ALL)
         dict_writer.writeheader()
         dict_writer.writerows(my_dictionary)
@@ -50,9 +50,9 @@ def format_str(str):
 
 def main():
 
-    df_normal = pd.read_json("../dataset/normalTrafficTraining.json")
+    df_normal = pd.read_json("../../Dataset/normalTrafficTraining.json")
     df_normal["REQUEST_TYPE"] = "Normal"
-    df_anomalous = pd.read_json("../dataset/anomalousTrafficTest.json")
+    df_anomalous = pd.read_json("../../Dataset/anomalousTrafficTest.json")
     df_anomalous["REQUEST_TYPE"] = "Anomalous"
     df = df_normal.append(df_anomalous)
 

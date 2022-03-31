@@ -35,7 +35,7 @@ def main():
         elif r[0] == 'POST':
             requests.append({"METHOD": "POST", "RESOURCE": r[1], "PAYLOAD": r[4]})
 
-    write_json(requests, "../dataset/normalTrafficTest.json")
+    write_json(requests, "../../Dataset/normalTrafficTest.json")
 
     return
 
