@@ -11,7 +11,7 @@ def main():
     X = dataset.iloc[:, :-2].values
     y = dataset.iloc[:, 796].values
     requests = dataset.iloc[:, 797]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.80)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5)
 
 
     knn_model = KNeighborsClassifier(n_neighbors=3)
