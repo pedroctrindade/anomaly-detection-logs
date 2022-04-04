@@ -1,8 +1,8 @@
-import pandas as pd
-from sklearn.cluster import KMeans
-from scipy.spatial.distance import cdist
 import numpy as np
-from sklearn.metrics import silhouette_samples, silhouette_score
+import pandas as pd
+from scipy.spatial.distance import cdist
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 
 
 def main():
@@ -34,7 +34,6 @@ def main():
             distances = np.append(distances,
                                   cdist([center_elem], data.iloc[:, :-2].values[clusters == i], 'euclidean'))
             points = np.append(points, data.iloc[:, ].values[clusters == i], axis=0)
-
 
         percentile = 90
         # getting outliers whose distances are greater than some percentile
