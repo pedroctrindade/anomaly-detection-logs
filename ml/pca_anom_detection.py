@@ -26,7 +26,7 @@ def main():
 
     best = [0, 0, 0]
 
-    for i in range(54, 120):
+    for i in range(72, 120):
         pca = PCA(n_components=i)
 
         pc_dataset_72 = pca.fit_transform(sample_data)
@@ -37,7 +37,7 @@ def main():
 
         print ("Best so far n_components: {}, threshold: {}, anoms_detected_ratio: {}".format(best[0], best[1], best[2]))
 
-        for threshold in range(1, 13):
+        for threshold in range(2, 13):
 
             count_normal = 0
 

@@ -1,4 +1,4 @@
-REGEX = r'\s*(\w+=.+?(?=&|$))*'
+REGEX = r'\s*(\w+=$|.+?(?=&|$))*'
 REGEX2 = r'\w+=.+?(?=&|$|\s)'
 #errorMsg=Credenciales+incorrectasany%250D%250ASet-cookie%253A%2BTamper%253D5765205567234876235
 
